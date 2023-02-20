@@ -1,8 +1,8 @@
 const Bank = require('./bank.js');
 
 describe('Bank withdrawal app', () => {
-  it('returns true', () => {
+  it('returns an empty array of deposits', () => {
     const bank = new Bank();
-    expect(bank.statement).toBe(true);
+    expect(bank.statement).toEqual([]);
   });
 });
