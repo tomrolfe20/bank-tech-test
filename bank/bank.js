@@ -18,12 +18,18 @@ class Bank {
       display += '\n';
       display += trans.date;
       display += ' || ';
-      trans.deposit ? (display += trans.amount + '.00') : ' ';
+      trans.deposit
+        ? (display += trans.amount.toString().includes('.')
+            ? trans.amount.toFixed(2)
+            : trans.amount + '.00')
+        : ' ';
       display += ' || ';
-      trans.withdrawal ? (display += trans.amount + '.00') : ' ';
+      trans.withdrawal ? (display += trans.amount) : ' ';
       display += ' || ';
       trans.deposit ? (balance += trans.amount) : (balance -= trans.amount);
-      display += balance + '.00';
+      display += balance.toString().includes('.')
+        ? balance.toFixed(2)
+        : balance + '.00';
     });
     return display;
   }

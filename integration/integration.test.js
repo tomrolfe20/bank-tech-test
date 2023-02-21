@@ -63,4 +63,14 @@ describe('Integration', () => {
       'date || credit || debit || balance\n1/1/1 || 1000.00 ||  || 1000.00\n1/1/1 || 1000.00 ||  || 2000.00'
     );
   });
+  it('returns an accurate statement with 2 deposits in correct format', () => {
+    const bank = new Bank();
+    const deposit1 = new Deposit('1/1/1', 1000.5);
+    const deposit2 = new Deposit('1/1/1', 1000.5);
+    bank.insert(deposit1);
+    bank.insert(deposit2);
+    expect(bank.getStatement()).toEqual(
+      'date || credit || debit || balance\n1/1/1 || 1000.50 ||  || 1000.50\n1/1/1 || 1000.50 ||  || 2001.00'
+    );
+  });
 });

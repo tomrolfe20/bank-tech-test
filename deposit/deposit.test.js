@@ -16,6 +16,6 @@ describe('Deposit', () => {
   it('adds a deposit with a date and an amount', () => {
     const deposit = new Deposit('18/01/2020', 1000);
     expect(deposit.date).toEqual('18/01/2020');
-    expect(deposit.amount).toEqual(1000);
+    expect(deposit.amount).toEqual(1000.00);
   });
 });
