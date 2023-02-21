@@ -1,4 +1,4 @@
-### Bank Tech Test
+# Bank Tech Test
 
 ## Quick start
 
@@ -36,13 +36,13 @@ date || credit || debit || balance
 
 ## User story
 
-As a user i want to add a deposit
-As a user i want to print my bank statement
-As a user i want to see what date i added the deposit
-As a user i want to see how much credit i have
-As a user i want to see how much debit i have
-As a user i want to see what my balance is
-As a user i want to withdraw money
+1. As a user i want to add a deposit
+2. As a user i want to print my bank statement
+3. As a user i want to see what date i added the deposit
+4. As a user i want to see how much credit i have
+5. As a user i want to see how much debit i have
+6. As a user i want to see what my balance is
+7. As a user i want to withdraw money
 
 ## Process
 
