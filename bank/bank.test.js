@@ -10,7 +10,7 @@ describe('Bank withdrawal app', () => {
     bank = new Bank();
     mockDeposit1000 = { date: '1/1/1', deposit: true, amount: 1000 };
     mockDeposit2000 = { date: '1/1/1', deposit: true, amount: 2000 };
-    mockWithdrawal1000 = { date: '1/1/1', amount: 1000 };
+    mockWithdrawal1000 = { date: '1/1/1', withdrawal: true, amount: 1000 };
   });
   it('returns an empty array of deposits', () => {
     expect(bank.statement).toEqual([]);
@@ -37,6 +37,14 @@ describe('Bank withdrawal app', () => {
 
     expect(bank.getStatement()).toEqual(
       'date || credit || debit || balance\n1/1/1 || 1000.00 ||  || 1000.00'
+    );
+  });
+  it('returns an accurate statement with 1 deposit and 1 withdrawal in correct format', () => {
+    bank.insert(mockDeposit2000);
+    bank.withdraw(mockWithdrawal1000);
+
+    expect(bank.getStatement()).toEqual(
+      'date || credit || debit || balance\n1/1/1 ||  || 1000.00 || 1000.00\n1/1/1 || 2000.00 ||  || 2000.00'
     );
   });
 });
