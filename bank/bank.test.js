@@ -8,8 +8,8 @@ describe('Bank withdrawal app', () => {
 
   beforeEach(() => {
     bank = new Bank();
-    mockDeposit1000 = { date: '1/1/1', amount: 1000 };
-    mockDeposit2000 = { date: '1/1/1', amount: 2000 };
+    mockDeposit1000 = { date: '1/1/1', deposit: true, amount: 1000 };
+    mockDeposit2000 = { date: '1/1/1', deposit: true, amount: 2000 };
     mockWithdrawal1000 = { date: '1/1/1', amount: 1000 };
   });
   it('returns an empty array of deposits', () => {
@@ -31,5 +31,12 @@ describe('Bank withdrawal app', () => {
     bank.withdraw(mockWithdrawal1000);
 
     expect(bank.statement).toEqual([mockDeposit1000, mockWithdrawal1000]);
+  });
+  it('returns an accurate statement with 1 deposit in correct format', () => {
+    bank.insert(mockDeposit1000);
+
+    expect(bank.getStatement()).toEqual(
+      'date || credit || debit || balance\n1/1/1 || 1000.00 ||  || 1000.00'
+    );
   });
 });
