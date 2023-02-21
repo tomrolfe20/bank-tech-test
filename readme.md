@@ -14,6 +14,10 @@
 10. Get your bank statement with: "bank.getStatement()"
 11. You should get returned: 'date || credit || debit || balance\n1/1/1 || 1000.00 || || 1000.00'
 
+12. OR type: "node runBankExample.js" to see an example of the output
+
+![Screenshot](screenshot.png)
+
 ## Requirements
 
 You should be able to interact with your code via a REPL like IRB or Node. (You don't need to implement a command line interface that takes input from STDIN.)
