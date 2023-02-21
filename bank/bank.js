@@ -16,6 +16,11 @@ class Bank {
     this.statement.push(withdrawal);
   }
 
+  addDecimals(int) {
+    int.toString().includes('.') ? (int = int.toFixed(2)) : (int += '.00');
+    return int;
+  }
+
   getStatement() {
     let display = 'date || credit || debit || balance';
     let balance = 0;
@@ -27,23 +32,14 @@ class Bank {
         display += trans.date;
         display += ' || ';
         //If transaction is a deposit, add it to the string to be returned. If it contains a decimal then deal with that.
-        trans.deposit
-          ? (display += trans.amount.toString().includes('.')
-              ? trans.amount.toFixed(2)
-              : trans.amount + '.00')
-          : '';
+        trans.deposit ? (display += this.addDecimals(trans.amount)) : '';
         display += ' || ';
         //If transaction is a withdrawal, add it to the string to be returned. If it contains a decimal then deal with that.
-        trans.withdrawal
-          ? (display += trans.amount.toString().includes('.')
-              ? trans.amount.toFixed(2)
-              : trans.amount + '.00')
-          : '';
+        trans.withdrawal ? (display += this.addDecimals(trans.amount)) : '';
         display += ' || ';
         //Add the transaction balance to the display. If it contains a decimal then deal with that.
-        display += trans.balance.toString().includes('.')
-          ? trans.balance.toFixed(2)
-          : trans.balance + '.00';
+        console.log('trans balance: ', trans.balance);
+        display += this.addDecimals(trans.balance);
       });
     return display;
   }
