@@ -35,20 +35,24 @@ class Bank {
       //slice and reverse makes it show the most recent transaction first
       .slice()
       .reverse()
-      .forEach((trans) => {
+      .forEach((transaction) => {
         // \n adds a new line
         display += '\n';
-        display += trans.date;
+        display += transaction.date;
         display += ' || ';
         //If transaction is a deposit, add it to the string to be returned. Adds decimals if required.
-        trans.deposit ? (display += this.addDecimals(trans.amount)) : '';
+        transaction.deposit
+          ? (display += this.addDecimals(transaction.amount))
+          : '';
         display += ' || ';
         //If transaction is a withdrawal, add it to the string to be returned. Adds decimals if required.
-        trans.withdrawal ? (display += this.addDecimals(trans.amount)) : '';
+        transaction.withdrawal
+          ? (display += this.addDecimals(transaction.amount))
+          : '';
         display += ' || ';
         //Add the transaction balance to the display. Adds decimals if required.
 
-        display += this.addDecimals(trans.balance);
+        display += this.addDecimals(transaction.balance);
       });
     return display;
   }
