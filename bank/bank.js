@@ -38,7 +38,7 @@ class Bank {
         trans.withdrawal ? (display += this.addDecimals(trans.amount)) : '';
         display += ' || ';
         //Add the transaction balance to the display. If it contains a decimal then deal with that.
-        console.log('trans balance: ', trans.balance);
+
         display += this.addDecimals(trans.balance);
       });
     return display;
